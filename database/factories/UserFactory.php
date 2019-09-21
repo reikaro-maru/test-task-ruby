@@ -1,4 +1,4 @@
-<?php
+php artisan make:factory<?php
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 use App\User;
