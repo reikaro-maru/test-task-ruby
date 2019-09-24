@@ -11,6 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+use Illuminate\Support\Facades\Route;
+
+
+Route::get('users/{userId}/projects', 'ProjectsController@list');
+Route::get('projects/{project}', 'ProjectsController@show');
+

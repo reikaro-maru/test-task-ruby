@@ -20,19 +20,16 @@ class ProjectsController extends Controller
 
     /**
      * ProjectsController constructor.
-     * @param Manager $fractal
-     * @param Request $request
      * @param ProjectTransformer $transformer
      * @param ProjectRepository $repository
      */
     public function __construct(
-        Manager $fractal,
-        Request $request,
+//        Request $request,
         ProjectTransformer $transformer,
         ProjectRepository $repository
     )
     {
-        parent::__construct($fractal, $request);
+//        $this->request = $request;
         $this->transformer = $transformer;
         $this->repository = $repository;
     }
@@ -42,19 +39,11 @@ class ProjectsController extends Controller
      * @param User $user
      * @return mixed
      */
-    public function list($userId, User $user)
+    public function list($userId)
     {
-        dd(111);
-        $user->findOrFail($userId);
-        $paginator = $this->repository
-            ->getForUser($userId)
-            ->paginate($this->perPage);
+        $projects = $this->repository->find($userId);
 
-        return $this->respondWithPaginate(
-            $paginator->getCollection(),
-            $this->transformer,
-            $paginator
-        );
+       return view('layouts.todo-board', compact('projects'));
     }
 
     /**

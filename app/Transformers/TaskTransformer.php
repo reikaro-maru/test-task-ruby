@@ -25,6 +25,4 @@ class TaskTransformer extends TransformerAbstract
             'updated_at' => (string)$task->updated_at,
         ];
     }
-
-
 }

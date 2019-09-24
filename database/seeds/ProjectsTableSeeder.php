@@ -13,7 +13,9 @@ class ProjectsTableSeeder extends Seeder
     {
         DB::table('projects')->insert([
             'project_name' => 'For home',
-            'user_id' => 1
+            'user_id' => 1,
+            'created_at' => now(),
+            'updated_at' => now()
         ]);
     }
 }
