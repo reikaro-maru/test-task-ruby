@@ -8,16 +8,59 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/font-awesome.css') }}" />
 
 </head>
 <body>
 <div class="flex-center position-ref full-height">
-    <div class="content">
-        <p class="h1 text-center">Simple todo list</p>
-        <button type="button" class="btn btn-primary">
-            <i class="fa fa-home"></i>Add TODO List
-        </button>
-
+    <div class="container">
+        <div class="row justify-content-md-center">
+            <div class="d-flex">
+                <p class="h1 text-align-center">Simple todo list</p>
+            </div>
+        </div>
+        <div class="row justify-content-md-center">
+            <button type="button" class="btn btn-primary">
+                <i class="fa fa-plus"></i>
+                Add TODO List
+            </button>
+        </div>
+        <div class="row justify-content-md-center">
+            <div class="col-md-10">
+                <nav class="navbar project-nav mt-3">
+                    <p class="h1 navbar-brand nav-title">
+                        <i class="fa fa-calendar"></i>
+                        Test
+                    </p>
+                <button class="navbar-toggler ml-auto" type="button">
+                    <i class="fa fa-edit"></i>
+                </button>
+                <button class="navbar-toggler" type="button">
+                    <i class="fa fa-trash"></i>
+                </button>
+                </nav>
+            </div>
+        </div>
+        <div class="row justify-content-md-center ">
+            <div class="col-md-10">
+                <nav class="navbar add-task">
+                    <div class="col-md-1">
+                        <button class="btn-block border-0" type="button">
+                            <i class="fa fa-plus"></i>
+                        </button>
+                    </div>
+                    <div class="col pl-0 pr-0">
+                        <form class="form-inline">
+                            <input class="form-control col-md-10 mr-1"
+                                   type="search"
+                                   placeholder="Start typing here to create a task"
+                                   aria-label="Search">
+                            <button class="btn btn-success" type="submit">Add Task</button>
+                        </form>
+                    </div>
+                </nav>
+            </div>
+        </div>
         {{--            @foreach($projects as $project)--}}
 {{--                {{ $project }}--}}
 {{--            @endforeach--}}

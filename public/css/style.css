@@ -1,3 +1,12 @@
-html {
-    background-image: url("https://walker-web.imgix.net/cms/Gradient_builder_2.jpg?auto=format,compress&w=1920&h=1200&fit=max&dpr=1.5");
+/*.background-image: url("https://walker-web.imgix.net/cms/Gradient_builder_2.jpg?auto=format,compress&w=1920&h=1200&fit=max&dpr=1.5");*/
+.project-nav {
+    background-color: #4266B1;
 }
+.nav-title {
+    color: white;
+}
+.add-task {
+    background-color: #DDDDDD;
+}
+
+
