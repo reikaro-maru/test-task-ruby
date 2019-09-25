@@ -1,5 +1,5 @@
 /*.background-image: url("https://walker-web.imgix.net/cms/Gradient_builder_2.jpg?auto=format,compress&w=1920&h=1200&fit=max&dpr=1.5");*/
-.project-nav {
+.primary {
     background-color: #4266B1;
 }
 .nav-title {
@@ -8,5 +8,10 @@
 .add-task {
     background-color: #DDDDDD;
 }
-
-
+.border-right {
+    margin: 0 .3rem 0 0;
+    border-right: 3px solid #ffffff;
+}
+.vl {
+    border-right: 1px solid #dddddd;
+}

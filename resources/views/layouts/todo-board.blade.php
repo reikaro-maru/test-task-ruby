@@ -20,14 +20,14 @@
             </div>
         </div>
         <div class="row justify-content-md-center">
-            <button type="button" class="btn btn-primary">
+            <button type="button" class="btn primary font-weight-bold text-light">
                 <i class="fa fa-plus"></i>
                 Add TODO List
             </button>
         </div>
         <div class="row justify-content-md-center">
             <div class="col-md-10">
-                <nav class="navbar project-nav mt-3">
+                <nav class="navbar primary mt-3">
                     <p class="h1 navbar-brand nav-title">
                         <i class="fa fa-calendar"></i>
                         Test
@@ -61,9 +61,19 @@
                 </nav>
             </div>
         </div>
-        {{--            @foreach($projects as $project)--}}
-{{--                {{ $project }}--}}
-{{--            @endforeach--}}
+        <div class="row justify-content-md-center mt-3">
+            <div class="col-md-1 ml-1 vl">
+                <input type="checkbox" aria-label="Checkbox for following text input">
+            </div>
+            <div class="col-md-7 vl">
+                <p> test task description</p>
+            </div>
+            <div class="col-md-1">
+                <a class="add border-right" title="Add" data-toggle="tooltip"><i class="fa fa-arrows-v mr-1"></i></a>
+                <a class="edit border-right" title="Edit" data-toggle="tooltip"><i class="fa fa-edit mr-1"></i></a>
+                <a class="delete" title="Delete" data-toggle="tooltip"><i class="fa fa-trash"></i></a>
+            </div>
+        </div>
     </div>
 </div>
 </body>
