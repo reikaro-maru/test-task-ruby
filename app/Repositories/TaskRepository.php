@@ -1,15 +1,19 @@
 <?php
 
-
 namespace App\Repositories;
 
 use App\Project;
-use App\User;
+use App\Task;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Prettus\Repository\Eloquent\BaseRepository;
 
-class ProjectRepository extends BaseRepository
+class TaskRepository extends BaseRepository
 {
+    public $rules = [
+        'project_id' => 'required|exists:projects,id',
+        'description' => 'required|string|max:255'
+    ];
+
     /**
      * Specify Model class name
      *
@@ -17,7 +21,7 @@ class ProjectRepository extends BaseRepository
      */
     public function model()
     {
-        return Project::class;
+        return Task::class;
     }
 
     /**
@@ -28,14 +32,11 @@ class ProjectRepository extends BaseRepository
         $this->pushCriteria(app(RequestCriteria::class));
     }
 
-    /**
-     * @param User $user
-     * @return mixed
-     */
-    public function getForUser(User $user)
+    public function getforProject($projectId)
     {
-        return Project::where('user_id', $user->id)
+        return Task::where('project_id', $projectId)
             ->orderBy('created_at', 'asc')
             ->get();
     }
 }
+

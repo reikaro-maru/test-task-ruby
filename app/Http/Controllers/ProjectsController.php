@@ -24,34 +24,36 @@ class ProjectsController extends Controller
      * @param ProjectRepository $repository
      */
     public function __construct(
-//        Request $request,
         ProjectTransformer $transformer,
         ProjectRepository $repository
     )
     {
-//        $this->request = $request;
+        $this->middleware('auth');
         $this->transformer = $transformer;
         $this->repository = $repository;
     }
 
     /**
-     * @param $userId
-     * @param User $user
+     * @param Request $request
      * @return mixed
      */
-    public function list($userId)
+    public function list(Request $request)
     {
-        $projects = $this->repository->find($userId);
-
-       return view('layouts.todo-board', compact('projects'));
+        return view('board.todo-board', [
+            'projects' => $this->repository->getForUser($request->user())
+        ]);
     }
 
-    /**
-     * @param $id
-     * @return mixed
-     */
-    public function show($id)
+    public function store(Request $request)
     {
-        return $this->respondWithItem($this->repository->find($id), $this->transformer);
+        $this->validate($request, [
+            'project_name' => 'required|max:255',
+        ]);
+
+       $newTask = $this->repository->create([
+            'project_name' => $request->name,
+        ]);
+
+        return $newTask;
     }
 }
