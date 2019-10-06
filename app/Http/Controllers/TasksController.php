@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Repositories\TaskRepository;
 use Illuminate\Auth\Access\AuthorizationException;
+use Illuminate\Http\Request;
 
 class TasksController extends Controller
 {
@@ -29,6 +30,19 @@ class TasksController extends Controller
         return view('board.todo-board', [
             'tasks' => $this->repository->getforProject($projectId)
         ]);
+    }
+
+    public function store(Request $request)
+    {
+        $this->validate($request, [
+            'description' => 'required|max:100',
+        ]);
+
+        $newTask = $this->repository->create([
+            'description' => $request->description,
+        ]);
+
+        return $newTask;
     }
 
     /**
