@@ -9,7 +9,9 @@ use App\Transformers\ProjectTransformer;
 use App\User;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Http\Request;
+use Illuminate\Validation\ValidationException;
 use League\Fractal\Manager;
+use Prettus\Validator\Exceptions\ValidatorException;
 
 /**
  * Class ProjectsController
@@ -46,17 +48,23 @@ class ProjectsController extends Controller
         ]);
     }
 
+    /**
+     * @param Request $request
+     * @return mixed
+     * @throws ValidationException
+     * @throws ValidatorException
+     */
     public function store(Request $request)
     {
         $this->validate($request, [
             'project_name' => 'required|max:255',
         ]);
 
-       $newTask = $this->repository->create([
+       $newProject = $this->repository->create([
             'project_name' => $request->name,
         ]);
 
-        return $newTask;
+        return $newProject;
     }
 
     /**
