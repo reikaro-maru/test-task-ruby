@@ -49,25 +49,19 @@
                 </nav>
             </div>
         </div>
-        <div class="row justify-content-md-center mt-3" v-for="task in projects.tasks">
-            <div class="col-md-1 ml-1 vl">
-                <input type="checkbox" aria-label="Checkbox for following text input">
-            </div>
-            <div class="col-md-7 vl">
-                <p> {{task.description}} </p>
-            </div>
-            <div class="col-md-1">
-                <a class="add border-right" title="Add" data-toggle="tooltip"><i class="fa fa-arrows-v mr-1"></i></a>
-                <a class="edit border-right" title="Edit" data-toggle="tooltip"><i class="fa fa-edit mr-1"></i></a>
-                <a class="delete" title="Delete" data-toggle="tooltip"><i class="fa fa-trash"></i></a>
-            </div>
-        </div>
+       <tasks-board :tasks="projects.tasks"></tasks-board>
     </div>
 </div>
 </template>
 <script>
+    import tasksBoard from "./TasksBoard";
+
     export default {
-        props: ['projects']
+        name: 'ProjectsBoard',
+        props: ['projects'],
+        components: {
+            tasksBoard
+        },
     }
 
 </script>

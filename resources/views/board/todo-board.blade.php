@@ -14,7 +14,7 @@
 </head>
 <body class="h-100">
     <div id="app">
-        <todo-board :projects="{{$projects}}"></todo-board>
+        <projects-board :projects="{{$projects}}"></projects-board>
     </div>
 <script src="/js/app.js"></script>
 </body>
