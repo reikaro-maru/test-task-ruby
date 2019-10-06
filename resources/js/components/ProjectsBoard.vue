@@ -49,12 +49,13 @@
                 </nav>
             </div>
         </div>
-       <tasks-board :tasks="projects.tasks"></tasks-board>
+       <tasks-board :tasks="taskCollection"></tasks-board>
     </div>
 </div>
 </template>
 <script>
     import tasksBoard from "./TasksBoard";
+    import TaskCollection from "./collections/TaskCollection";
 
     export default {
         name: 'ProjectsBoard',
@@ -62,6 +63,12 @@
         components: {
             tasksBoard
         },
-    }
 
+        async  asyncData({params}) {
+            let taskCollection = new TaskCollection();
+            taskCollection.set('project_id', params.project_id);
+            await taskCollection.fetch();
+        }
+
+    }
 </script>

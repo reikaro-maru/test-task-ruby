@@ -25,7 +25,7 @@ Route::post('auth/register', 'Auth\AuthController@postRegister');
 Auth::routes();
 
 //Projects
-Route::get('projects/{projectId}/tasks', 'ProjectsController@list');
+Route::get('projects/', 'ProjectsController@list');
 Route::post('projects/add', 'ProjectsController@store')->name('add-project');
 
 //Tasks

@@ -29,6 +29,7 @@
         "bootstrap": "^4.3.1",
         "font-awesome": "^4.7.0",
         "gulp": "^4.0.2",
+        "vue-mc": "^0.6.0",
         "vue-router": "^3.1.3"
     }
 }
