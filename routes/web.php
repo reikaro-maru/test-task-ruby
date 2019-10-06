@@ -29,4 +29,6 @@ Route::get('projects/{projectId}/tasks', 'ProjectsController@list');
 Route::post('projects/add', 'ProjectsController@store')->name('add-project');
 
 //Tasks
+Route::get('projects/{projectId}/tasks', 'TasksController@list');
+Route::delete('tasks/{task}', 'TasksController@destroy');
 

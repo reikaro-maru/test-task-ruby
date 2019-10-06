@@ -12,9 +12,8 @@
     <link rel="stylesheet" href="{{ asset('css/font-awesome.css') }}" />
 
 </head>
-<body>
+<body class="h-100">
     <div id="app">
-        {{dd($projects)}}
         <todo-board :projects="{{$projects}}"></todo-board>
     </div>
 <script src="/js/app.js"></script>

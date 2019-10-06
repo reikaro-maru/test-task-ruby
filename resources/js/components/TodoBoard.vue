@@ -1,6 +1,6 @@
 <template>
-<div class="flex-center position-ref full-height">
-    <div class="container" v-for="project in projects">
+<div class="container">
+    <div class="flex-center full-height"  v-for="project in projects">
         <div class="row justify-content-md-center">
             <div class="d-flex">
                 <p class="h1 text-align-center">Simple todo list</p>
@@ -67,8 +67,7 @@
 </template>
 <script>
     export default {
-        props: ['projects'],
-
+        props: ['projects']
     }
 
 </script>

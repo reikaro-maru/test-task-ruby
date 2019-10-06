@@ -3,9 +3,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Project;
 use App\Repositories\ProjectRepository;
 use App\Transformers\ProjectTransformer;
 use App\User;
+use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Http\Request;
 use League\Fractal\Manager;
 
@@ -55,5 +57,16 @@ class ProjectsController extends Controller
         ]);
 
         return $newTask;
+    }
+
+    /**
+     * @param $id
+     * @throws AuthorizationException
+     */
+    public function destroy($id)
+    {
+        $this->authorize('destroy', $this->repository->find($id));
+
+        $this->repository->find($id)->delete();
     }
 }
